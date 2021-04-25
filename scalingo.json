@@ -7,42 +7,47 @@
   "env": {
     "BUILDPACK_URL": {
       "description": "Buildpack used to deploy Mattermost",
-      "value": "https://github.com/MTES-MCT/mattermost-buildpack#main",
+      "value": "https://github.com/MTES-MCT/mattermost-buildpack#tristanrobert/issue1",
       "required": true
     },
     "DB_TYPE": {
       "description": "db addon type: postgres or mysql",
       "value": "postgres",
-      "required": true
+      "required": false
     },
     "DB_USER": {
       "description": "db username",
       "value": "mattermost",
-      "required": true
+      "required": false
     },
     "DB_PASSWORD": {
       "description": "db password",
       "value": "",
-      "required": true
+      "required": false
     },
     "DB_NAME": {
       "description": "db name",
       "value": "mattermost",
-      "required": true
+      "required": false
     },
     "DB_HOST": {
       "description": "db host",
       "value": "",
-      "required": true
+      "required": false
     },
     "DB_PORT": {
       "description": "db port",
       "value": "5432",
-      "required": true
+      "required": false
+    },
+    "DB_URL": {
+      "description": "db url",
+      "value": "",
+      "required": false
     },
     "FILE_DRIVER_NAME": {
       "description": "file driver name",
-      "value": "amazons3",
+      "value": "local",
       "required": true
     },
     "S3_KEY_ID": {
@@ -85,16 +90,20 @@
       "description": "site url",
       "value": ""
     },
+    "MATTERMOST_PORT": {
+      "description": "server listening port",
+      "value": "8065"
+    },
     "MAX_METASPACE_SIZE": {
       "description": "Control max memory available",
       "value": "512m"
     }
   },
-  "addons": ["postgresql:postgresql-starter-512"],
+  "addons": ["postgresql:postgresql-sandbox"],
   "formation": {
     "web": {
       "amount": 1,
-      "size": "M"
+      "size": "S"
     }
   }
 }
