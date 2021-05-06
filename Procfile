@@ -1,0 +1,1 @@
+postdeploy: bash /app/mattermost/bin/postdeploy 
